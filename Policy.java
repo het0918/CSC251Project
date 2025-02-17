@@ -8,10 +8,10 @@ public class Policy {
     private String policyHolderLastName;
     private int policyHolderAge;
     private String policyHolderSmokingStatus;
-    private int policyHolderHeight;
+    private double policyHolderHeight;
     private double policyHolderWeight;
 
-    // No-argument constructor
+    // Creating a no-argument constructor
     public Policy() {
         policyNumber = "";
         providerName = "";
@@ -19,12 +19,12 @@ public class Policy {
         policyHolderLastName = "";
         policyHolderAge = 0;
         policyHolderSmokingStatus = "";
-        policyHolderHeight = 0;
+        policyHolderHeight = 0.0;
         policyHolderWeight = 0.0;
     }
 
-    // Constructor with parameters
-    public Policy(String pcNumber, String insuranceProvider, String firstName, String lastName, int age, String smokingStatus, int height, double weight) {
+    // Creating a constructor with parameters
+    public Policy(String pcNumber, String insuranceProvider, String firstName, String lastName, int age, String smokingStatus, double height, double weight) {
         policyNumber = pcNumber;
         providerName = insuranceProvider;
         policyHolderFirstName = firstName;
@@ -60,8 +60,8 @@ public class Policy {
         policyHolderSmokingStatus = smokingStatus;
     }
 
-    public void setPolicyHolderHeight(int height) {
-        policyHolderHeight = height;
+    public void setPolicyHolderHeight(double height) {
+        policyHolderHeight = Math.round(height * 100.0) / 100.0;
     }
 
     public void setPolicyHolderWeight(double weight) {
@@ -93,7 +93,7 @@ public class Policy {
         return policyHolderSmokingStatus;
     }
 
-    public int getPolicyHolderHeight() {
+    public double getPolicyHolderHeight() {
         return policyHolderHeight;
     }
 
@@ -106,7 +106,7 @@ public class Policy {
         return (policyHolderWeight * 703) / (policyHolderHeight * policyHolderHeight);
     }
 
-    // Method to calculate the insurance policy cost
+    // Method to calculate the insurance policy cost and charges any additional fees, if applicable.
     public double calculateInsuranceCost() {
         double baseFee = 600.0;
         double additionalFees = 0.0;
@@ -118,10 +118,9 @@ public class Policy {
         if (policyHolderSmokingStatus.equalsIgnoreCase("smoker")) {
             additionalFees += 100.0;
         }
-        double bmi = calculateBMI();
         
-        if (bmi > 35.0) {
-            additionalFees += (bmi - 35.0) * 20.0;
+        if (calculateBMI() > 35.0) {
+            additionalFees += (calculateBMI() - 35.0) * 20.0;
         }
 
         return baseFee + additionalFees;
