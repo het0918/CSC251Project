@@ -48,5 +48,25 @@ public class Project_het_shah {
          System.out.println("Error: File not found.");
          return;
       }
+      
+      // Display all the information about each Policy
+      System.out.println("\n------------------------------------------------------------------------------");
+      for (Policy policy : policies) {
+         System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
+         System.out.println("\nProvider Name: " + policy.getProviderName());
+         System.out.println("\nPolicyholder's First Name: " + policy.getPolicyHolderFirstName());
+         System.out.println("\nPolicyholder's Last Name: " + policy.getPolicyHolderLastName());
+         System.out.println("\nPolicyholder's Age: " + policy.getPolicyHolderAge());
+         System.out.println("\nPolicyholder's Smoking Status: " + policy.getPolicyHolderSmokingStatus());
+         System.out.println("\nPolicyholder's Height: " + policy.getPolicyHolderHeight() + " inches");
+         System.out.println("\nPolicyholder's Weight: " + policy.getPolicyHolderWeight() + " pounds");
+         System.out.printf("\nPolicyholder's BMI: %.2f%n", policy.calculateBMI());
+         System.out.printf("\nPolicy Price: $%.2f%n", policy.calculateInsuranceCost());
+         System.out.println("\n------------------------------------------------------------------------------");
+      }
+      
+      // Display smoker/non-smoker counts
+      System.out.println("\nNumber of Policyholders that are smokers: " + smokerCount);
+      System.out.println("Number of Policyholders that are non-smokers: " + nonSmokerCount);
    }
 }
