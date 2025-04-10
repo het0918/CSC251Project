@@ -35,7 +35,6 @@ public class Policy {
     public void setProviderName(String providerName) { this.providerName = providerName; }
 
     public PolicyHolder getPolicyHolder() { return policyHolder; }
-    public void setPolicyHolder(PolicyHolder policyHolder) { this.policyHolder = policyHolder; }
 
     /**
      * Calculates the insurance policy cost and includes additional charges if applicable.
