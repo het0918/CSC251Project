@@ -55,18 +55,10 @@ public class Project_het_shah {
       System.out.println("\n------------------------------------------------------------------------------");
       for (Policy policy : policies) {
          PolicyHolder policyHolder = policy.getPolicyHolder();
-         
-         System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
-         System.out.println("\nProvider Name: " + policy.getProviderName());
-         System.out.println("\nPolicyholder's First Name: " + policyHolder.getFirstName());
-         System.out.println("\nPolicyholder's Last Name: " + policyHolder.getLastName());
-         System.out.println("\nPolicyholder's Age: " + policyHolder.getAge());
-         System.out.println("\nPolicyholder's Smoking Status: " + policyHolder.getSmokingStatus());
-         System.out.println("\nPolicyholder's Height: " + policyHolder.getHeight() + " inches");
-         System.out.println("\nPolicyholder's Weight: " + policyHolder.getWeight() + " pounds");
-         System.out.printf("\nPolicyholder's BMI: %.2f%n", policyHolder.calculateBMI());
-         System.out.printf("\nPolicy Price: $%.2f%n", policy.calculateInsuranceCost());
+            
+         System.out.println(policy);
          System.out.println("\n------------------------------------------------------------------------------");
+
       }
       
       // Display smoker/non-smoker counts
