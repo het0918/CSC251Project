@@ -34,7 +34,13 @@ public class Policy {
     public String getProviderName() { return providerName; }
     public void setProviderName(String providerName) { this.providerName = providerName; }
 
-    public PolicyHolder getPolicyHolder() { return policyHolder; }
+   /**
+    * Returns a deep copy of PolicyHolder to prevent external modifications
+    */
+   public PolicyHolder getPolicyHolder() {
+       return new PolicyHolder(policyHolder);
+   }
+
 
     /**
      * Calculates the insurance policy cost and includes additional charges if applicable.
