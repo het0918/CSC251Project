@@ -50,5 +50,15 @@ public class Policy {
         }
 
         return baseFee + additionalFees;
-    }
+     }
+     
+     @Override
+     public String toString() {
+       return String.format("Policy Number: %s%n" +
+                            "Provider Name: %s%n%n" +
+                            "%s" + // Calls PolicyHolder's toString() method
+                            "Policy Price: $%.2f%n",
+                            policyNumber, providerName, policyHolder.toString(),
+                            calculateInsuranceCost());
+     }     
 }
