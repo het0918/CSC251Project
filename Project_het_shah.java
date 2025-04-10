@@ -3,10 +3,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Project class creating instances of Policy Class.
+// Main class for processing insurance policy information
 public class Project_het_shah {
    
-   // Main program
    public static void main(String[] args) {
       // List to store Policy objects
       ArrayList<Policy> policies = new ArrayList<>();
@@ -31,8 +30,11 @@ public class Project_het_shah {
             double height = Double.parseDouble(fileScanner.nextLine().trim());
             double weight = Double.parseDouble(fileScanner.nextLine().trim());
             
-            // Create a new Policy object and add it to the list
-            Policy policy = new Policy(policyNum, providerName, firstName, lastName, age, smokingStatus, height, weight);
+            // Create PolicyHolder object
+            PolicyHolder policyHolder = new PolicyHolder(firstName, lastName, age, smokingStatus, height, weight);
+
+            // Create Policy object with PolicyHolder instance
+            Policy policy = new Policy(policyNum, providerName, policyHolder);
             policies.add(policy);
             
             // Count smokers and non-smokers
@@ -52,15 +54,17 @@ public class Project_het_shah {
       // Display all the information about each Policy
       System.out.println("\n------------------------------------------------------------------------------");
       for (Policy policy : policies) {
+         PolicyHolder policyHolder = policy.getPolicyHolder();
+         
          System.out.println("\nPolicy Number: " + policy.getPolicyNumber());
          System.out.println("\nProvider Name: " + policy.getProviderName());
-         System.out.println("\nPolicyholder's First Name: " + policy.getPolicyHolderFirstName());
-         System.out.println("\nPolicyholder's Last Name: " + policy.getPolicyHolderLastName());
-         System.out.println("\nPolicyholder's Age: " + policy.getPolicyHolderAge());
-         System.out.println("\nPolicyholder's Smoking Status: " + policy.getPolicyHolderSmokingStatus());
-         System.out.println("\nPolicyholder's Height: " + policy.getPolicyHolderHeight() + " inches");
-         System.out.println("\nPolicyholder's Weight: " + policy.getPolicyHolderWeight() + " pounds");
-         System.out.printf("\nPolicyholder's BMI: %.2f%n", policy.calculateBMI());
+         System.out.println("\nPolicyholder's First Name: " + policyHolder.getFirstName());
+         System.out.println("\nPolicyholder's Last Name: " + policyHolder.getLastName());
+         System.out.println("\nPolicyholder's Age: " + policyHolder.getAge());
+         System.out.println("\nPolicyholder's Smoking Status: " + policyHolder.getSmokingStatus());
+         System.out.println("\nPolicyholder's Height: " + policyHolder.getHeight() + " inches");
+         System.out.println("\nPolicyholder's Weight: " + policyHolder.getWeight() + " pounds");
+         System.out.printf("\nPolicyholder's BMI: %.2f%n", policyHolder.calculateBMI());
          System.out.printf("\nPolicy Price: $%.2f%n", policy.calculateInsuranceCost());
          System.out.println("\n------------------------------------------------------------------------------");
       }
