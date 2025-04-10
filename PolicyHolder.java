@@ -26,6 +26,18 @@ public class PolicyHolder {
         this.height = height;
         this.weight = weight;
     }
+    
+   /**
+    * Copy constructor to create a deep copy of PolicyHolder
+    */
+   public PolicyHolder(PolicyHolder other) {
+       this.firstName = other.firstName;
+       this.lastName = other.lastName;
+       this.age = other.age;
+       this.smokingStatus = other.smokingStatus;
+       this.height = other.height;
+       this.weight = other.weight;
+   }
 
     // Getter and setter methods for encapsulation
     public String getFirstName() { return firstName; }
