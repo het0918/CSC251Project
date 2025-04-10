@@ -56,11 +56,13 @@ public class Project_het_shah {
       
       for (Policy policy : policies) {
           System.out.println(policy);
-          System.out.println("\n------------------------------------------------------------------------------");
+          System.out.println("------------------------------------------------------------------------------");
       }
 
-      // Display smoker/non-smoker counts
-      System.out.println("\nNumber of Policyholders that are smokers: " + smokerCount);
-      System.out.println("Number of Policyholders that are non-smokers: " + nonSmokerCount);
+      // Display statistics
+      System.out.println("\nThere were " + Policy.getPolicyCount() + " Policy objects created.");
+      System.out.println("The number of policies with a smoker is: " + smokerCount);
+      System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
+
    }
 }
