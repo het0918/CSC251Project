@@ -5,17 +5,25 @@ public class Policy {
     private String policyNumber;
     private String providerName;
     private PolicyHolder policyHolder; // PolicyHolder object
-
+    
+    // Static field to track the number of policies created
+    private static int policyCount = 0;
+    
     /**
      * Constructor with parameters.
-     * @param policyNumber Policy number
-     * @param providerName Insurance provider name
-     * @param policyHolder PolicyHolder object containing holder details
      */
     public Policy(String policyNumber, String providerName, PolicyHolder policyHolder) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyHolder = policyHolder;
+        policyCount++; // Increment policy counter when a new policy is created
+    }
+   
+    /**
+     * Static method to get the number of policies created.
+     */
+    public static int getPolicyCount() {
+        return policyCount;
     }
 
     // Getter and setter methods
