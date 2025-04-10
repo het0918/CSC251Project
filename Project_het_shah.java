@@ -53,14 +53,12 @@ public class Project_het_shah {
       
       // Display all the information about each Policy
       System.out.println("\n------------------------------------------------------------------------------");
-      for (Policy policy : policies) {
-         PolicyHolder policyHolder = policy.getPolicyHolder();
-            
-         System.out.println(policy);
-         System.out.println("\n------------------------------------------------------------------------------");
-
-      }
       
+      for (Policy policy : policies) {
+          System.out.println(policy);
+          System.out.println("\n------------------------------------------------------------------------------");
+      }
+
       // Display smoker/non-smoker counts
       System.out.println("\nNumber of Policyholders that are smokers: " + smokerCount);
       System.out.println("Number of Policyholders that are non-smokers: " + nonSmokerCount);
